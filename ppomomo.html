@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPOMOMO - Premium Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ppomomo.css">
+</head>
+<body class="pomodoro">
+
+    <div class="bg-blur"></div>
+
+    <!-- Heart Shape SVG Mask -->
+    <svg width="0" height="0">
+        <defs>
+            <clipPath id="heart-mask" clipPathUnits="objectBoundingBox">
+                <path d="M 0.5, 0.15 C 0.35, -0.1, 0, 0.1, 0, 0.4 C 0, 0.7, 0.5, 1, 0.5, 1 C 0.5, 1, 1, 0.7, 1, 0.4 C 1, 0.1, 0.65, -0.1, 0.5, 0.15 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">PPOMOMO</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Guide</a></li>
+                    <li class="nav__item"><button id="settings-btn" class="nav__btn">Settings</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="main__container">
+            <div class="timer-wrapper">
+                <section class="timer-card">
+                    <div class="timer-card__modes">
+                        <button class="mode-btn active" data-mode="pomodoro">Pomodoro</button>
+                        <button class="mode-btn" data-mode="short">Short Break</button>
+                        <button class="mode-btn" data-mode="long">Long Break</button>
+                    </div>
+                    
+                    <div class="timer-display">
+                        <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+                    </div>
+
+                    <div class="timer-controls">
+                        <button id="start-btn" class="control-btn control-btn--primary">START</button>
+                        <button id="pause-btn" class="control-btn" style="display: none;">PAUSE</button>
+                        <button id="reset-btn" class="control-btn control-btn--secondary">RESET</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">2026. 제작자 오즈코딩스쿨 PD10기 디자이너 박정하</p>
+        </div>
+    </footer>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal__content">
+            <h2 class="modal__title">Settings</h2>
+            <div class="settings-group">
+                <div class="setting-item">
+                    <label>Pomodoro (min)</label>
+                    <input type="number" id="input-pomodoro" value="25" min="1" max="99">
+                </div>
+                <div class="setting-item">
+                    <label>Short Break (min)</label>
+                    <input type="number" id="input-short" value="5" min="1" max="60">
+                </div>
+                <div class="setting-item">
+                    <label>Long Break (min)</label>
+                    <input type="number" id="input-long" value="15" min="1" max="99">
+                </div>
+            </div>
+            <button id="save-settings" class="control-btn control-btn--primary">SAVE & APPLY</button>
+        </div>
+    </div>
+
+    <script src="ppomomo.js"></script>
+</body>
+</html>
